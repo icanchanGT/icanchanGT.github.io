@@ -3,27 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#1a3a6e">
+<meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Himnario IDdD">
 <title>Himnario — Iglesia de Dios</title>
 <link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #0f1f3d;
-  --navy-mid: #1a3a6e;
-  --navy-light: #274d8f;
-  --gold: #c9a227;
-  --gold-light: #e8c050;
-  --gold-pale: #f5e6b8;
-  --white: #f8f5ee;
-  --text: #e8e0d0;
-  --text-dim: #a09880;
-  --card: rgba(26,58,110,0.55);
-  --border: rgba(201,162,39,0.25);
+  --bg: #ffffff;
+  --bg-alt: #f3f5f7;
+  --navy: #0f2d5f;
+  --navy-dark: #0a1f42;
+  --navy-light: #2a5ca8;
+  --gray: #8b93a0;
+  --gray-light: #d5d9dd;
+  --gray-pale: #eef1f3;
+  --white: #ffffff;
+  --text: #14305c;
+  --text-dim: #6b7480;
+  --card: #ffffff;
+  --border: #dde1e5;
   --radius: 14px;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -35,7 +39,7 @@ html, body {
   height: 100%;
   overflow: hidden;
   font-family: 'Lora', Georgia, serif;
-  background: var(--navy);
+  background: var(--bg);
   color: var(--text);
 }
 
@@ -52,9 +56,9 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,162,39,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 80% at 90% 100%, rgba(39,77,143,0.4) 0%, transparent 60%),
-    linear-gradient(160deg, #0a1628 0%, #0f1f3d 40%, #12264a 100%);
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(15,45,95,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 90% 100%, rgba(139,147,160,0.10) 0%, transparent 60%),
+    linear-gradient(160deg, #ffffff 0%, #f6f8fa 45%, #eef1f4 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -63,7 +67,7 @@ body::before {
 header {
   position: relative;
   z-index: 10;
-  background: rgba(10, 22, 40, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   padding: 12px 16px 10px;
@@ -79,7 +83,7 @@ header {
   flex-shrink: 0;
 }
 
-.logo-wrap svg {
+.logo-wrap svg, .logo-wrap img {
   width: 100%;
   height: 100%;
 }
@@ -88,7 +92,7 @@ header {
   font-family: 'Cinzel', serif;
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--gold-light);
+  color: var(--navy);
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
@@ -104,13 +108,13 @@ header {
 
 .hymn-count-badge {
   margin-left: auto;
-  background: rgba(201,162,39,0.15);
+  background: var(--gray-pale);
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 3px 10px;
   font-family: 'Cinzel', serif;
   font-size: 0.72rem;
-  color: var(--gold);
+  color: var(--navy);
   letter-spacing: 0.05em;
   flex-shrink: 0;
 }
@@ -121,31 +125,31 @@ header {
   z-index: 10;
   padding: 12px 14px 8px;
   flex-shrink: 0;
-  background: rgba(10,22,40,0.6);
+  background: rgba(255,255,255,0.7);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(201,162,39,0.1);
+  border-bottom: 1px solid var(--border);
 }
 
 .search-box {
   position: relative;
   display: flex;
   align-items: center;
-  background: rgba(255,255,255,0.06);
-  border: 1.5px solid rgba(201,162,39,0.3);
+  background: var(--bg-alt);
+  border: 1.5px solid var(--gray-light);
   border-radius: 12px;
   overflow: hidden;
   transition: border-color 0.2s;
 }
 
 .search-box:focus-within {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(201,162,39,0.1);
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(15,45,95,0.1);
 }
 
 .search-icon {
   padding: 0 12px;
-  color: var(--gold);
-  opacity: 0.7;
+  color: var(--gray);
+  opacity: 0.9;
   font-size: 1.1rem;
   pointer-events: none;
 }
@@ -155,7 +159,7 @@ header {
   background: none;
   border: none;
   outline: none;
-  color: var(--white);
+  color: var(--navy);
   font-family: 'Lora', serif;
   font-size: 0.95rem;
   padding: 11px 4px;
@@ -173,7 +177,7 @@ header {
   display: none;
   transition: color 0.2s;
 }
-.clear-btn:hover { color: var(--gold); }
+.clear-btn:hover { color: var(--navy); }
 .clear-btn.visible { display: block; }
 
 .filter-tabs {
@@ -184,8 +188,8 @@ header {
 
 .filter-tab {
   flex: 1;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(201,162,39,0.15);
+  background: var(--bg-alt);
+  border: 1px solid var(--gray-light);
   border-radius: 8px;
   color: var(--text-dim);
   font-family: 'Cinzel', serif;
@@ -198,9 +202,9 @@ header {
 }
 
 .filter-tab.active {
-  background: rgba(201,162,39,0.18);
-  border-color: var(--gold);
-  color: var(--gold-light);
+  background: rgba(15,45,95,0.1);
+  border-color: var(--navy);
+  color: var(--navy);
 }
 
 /* LIST AREA */
@@ -216,7 +220,7 @@ header {
 
 .list-wrapper::-webkit-scrollbar { width: 4px; }
 .list-wrapper::-webkit-scrollbar-track { background: transparent; }
-.list-wrapper::-webkit-scrollbar-thumb { background: rgba(201,162,39,0.3); border-radius: 2px; }
+.list-wrapper::-webkit-scrollbar-thumb { background: var(--gray-light); border-radius: 2px; }
 
 #hymnList {
   padding: 8px 10px 20px;
@@ -235,7 +239,7 @@ header {
   align-items: center;
   gap: 12px;
   transition: all 0.18s ease;
-  backdrop-filter: blur(4px);
+  box-shadow: 0 1px 3px rgba(15,45,95,0.06);
   position: relative;
   overflow: hidden;
 }
@@ -245,14 +249,14 @@ header {
   position: absolute;
   left: 0; top: 0; bottom: 0;
   width: 3px;
-  background: linear-gradient(to bottom, var(--gold), var(--gold-pale));
+  background: linear-gradient(to bottom, var(--navy), var(--navy-light));
   opacity: 0;
   transition: opacity 0.2s;
 }
 
 .hymn-item:active, .hymn-item:hover {
-  background: rgba(26,58,110,0.8);
-  border-color: rgba(201,162,39,0.5);
+  background: var(--gray-pale);
+  border-color: var(--navy-light);
   transform: translateX(2px);
 }
 
@@ -262,7 +266,7 @@ header {
   font-family: 'Cinzel', serif;
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--navy);
   min-width: 36px;
   text-align: right;
   line-height: 1;
@@ -286,18 +290,18 @@ header {
 }
 
 .hymn-title-text span.highlight {
-  background: rgba(201,162,39,0.3);
+  background: rgba(15,45,95,0.14);
   border-radius: 2px;
   padding: 0 1px;
-  color: var(--gold-light);
+  color: var(--navy);
 }
 
 .hymn-arrow {
   margin-left: auto;
-  color: var(--text-dim);
+  color: var(--gray);
   font-size: 0.9rem;
   flex-shrink: 0;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 /* EMPTY STATE */
@@ -321,7 +325,7 @@ header {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding-top: var(--safe-top);
   padding-bottom: var(--safe-bottom);
-  background: linear-gradient(160deg, #0a1628 0%, #0f1f3d 50%, #12264a 100%);
+  background: linear-gradient(160deg, #ffffff 0%, #f6f8fa 50%, #eef1f4 100%);
 }
 
 #detailView.open {
@@ -329,7 +333,7 @@ header {
 }
 
 .detail-header {
-  background: rgba(10, 22, 40, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   padding: 12px 14px;
@@ -340,10 +344,10 @@ header {
 }
 
 .back-btn {
-  background: rgba(201,162,39,0.12);
+  background: var(--gray-pale);
   border: 1px solid var(--border);
   border-radius: 10px;
-  color: var(--gold-light);
+  color: var(--navy);
   font-family: 'Cinzel', serif;
   font-size: 0.8rem;
   padding: 7px 14px;
@@ -354,7 +358,7 @@ header {
   transition: all 0.2s;
   flex-shrink: 0;
 }
-.back-btn:active { background: rgba(201,162,39,0.25); }
+.back-btn:active { background: rgba(15,45,95,0.12); }
 
 .detail-title-wrap {
   flex: 1;
@@ -364,7 +368,7 @@ header {
 .detail-num {
   font-family: 'Cinzel', serif;
   font-size: 0.72rem;
-  color: var(--gold);
+  color: var(--gray);
   letter-spacing: 0.08em;
 }
 
@@ -372,7 +376,7 @@ header {
   font-family: 'Cinzel', serif;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--white);
+  color: var(--navy);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -386,7 +390,7 @@ header {
 }
 
 .font-btn {
-  background: rgba(255,255,255,0.06);
+  background: var(--bg-alt);
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--text);
@@ -401,7 +405,7 @@ header {
   font-weight: 700;
   transition: all 0.15s;
 }
-.font-btn:active { background: rgba(201,162,39,0.2); border-color: var(--gold); }
+.font-btn:active { background: rgba(15,45,95,0.15); border-color: var(--navy); }
 
 .detail-body {
   flex: 1;
@@ -412,7 +416,7 @@ header {
 }
 
 .detail-body::-webkit-scrollbar { width: 3px; }
-.detail-body::-webkit-scrollbar-thumb { background: rgba(201,162,39,0.2); border-radius: 2px; }
+.detail-body::-webkit-scrollbar-thumb { background: var(--gray-light); border-radius: 2px; }
 
 #hymnContent {
   font-family: 'Lora', serif;
@@ -426,7 +430,7 @@ header {
 .verse-label {
   font-family: 'Cinzel', serif;
   font-size: 0.72rem;
-  color: var(--gold);
+  color: var(--navy);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 1.4em 0 0.4em;
@@ -436,7 +440,7 @@ header {
 .coro-label {
   font-family: 'Cinzel', serif;
   font-size: 0.72rem;
-  color: var(--gold-light);
+  color: var(--navy-light);
   letter-spacing: 0.12em;
   font-style: italic;
   margin: 1.4em 0 0.4em;
@@ -448,14 +452,14 @@ header {
   display: flex;
   gap: 8px;
   padding: 10px 14px;
-  background: rgba(10,22,40,0.8);
+  background: var(--bg-alt);
   border-top: 1px solid var(--border);
   flex-shrink: 0;
 }
 
 .nav-btn {
   flex: 1;
-  background: rgba(255,255,255,0.05);
+  background: var(--white);
   border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--text);
@@ -470,8 +474,8 @@ header {
   justify-content: center;
   gap: 6px;
 }
-.nav-btn:active { background: rgba(201,162,39,0.15); border-color: var(--gold); color: var(--gold-light); }
-.nav-btn:disabled { opacity: 0.25; cursor: default; }
+.nav-btn:active { background: rgba(15,45,95,0.1); border-color: var(--navy); color: var(--navy); }
+.nav-btn:disabled { opacity: 0.35; cursor: default; }
 
 /* LOADING */
 .loading {
@@ -486,8 +490,8 @@ header {
 /* ORNAMENT */
 .ornament {
   text-align: center;
-  color: var(--gold);
-  opacity: 0.4;
+  color: var(--gray);
+  opacity: 0.6;
   font-size: 1.1rem;
   padding: 8px 0;
   letter-spacing: 0.3em;
@@ -511,34 +515,7 @@ header {
 
 <header>
   <div class="logo-wrap">
-    <!-- SVG Logo: globe with book on top (extracted from Iglesia de Dios style) -->
-    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none">
-      <!-- Globe -->
-      <circle cx="30" cy="35" r="20" fill="#1a3a6e" stroke="#c9a227" stroke-width="1.5"/>
-      <!-- Meridians -->
-      <ellipse cx="30" cy="35" rx="8" ry="20" stroke="#c9a227" stroke-width="0.8" opacity="0.6"/>
-      <ellipse cx="30" cy="35" rx="14" ry="20" stroke="#c9a227" stroke-width="0.8" opacity="0.3"/>
-      <!-- Parallels -->
-      <line x1="10" y1="35" x2="50" y2="35" stroke="#c9a227" stroke-width="0.8" opacity="0.5"/>
-      <line x1="12" y1="26" x2="48" y2="26" stroke="#c9a227" stroke-width="0.6" opacity="0.4"/>
-      <line x1="12" y1="44" x2="48" y2="44" stroke="#c9a227" stroke-width="0.6" opacity="0.4"/>
-      <!-- Outline gleam -->
-      <circle cx="30" cy="35" r="20" stroke="#c9a227" stroke-width="1.5"/>
-      <!-- Book on top -->
-      <rect x="15" y="10" width="30" height="20" rx="2" fill="#c9a227"/>
-      <rect x="16" y="11" width="28" height="18" rx="1.5" fill="#e8c050"/>
-      <!-- Book spine -->
-      <line x1="30" y1="11" x2="30" y2="29" stroke="#c9a227" stroke-width="1.5"/>
-      <!-- Book pages suggestion -->
-      <line x1="19" y1="15" x2="29" y2="15" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
-      <line x1="19" y1="18" x2="29" y2="18" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
-      <line x1="19" y1="21" x2="29" y2="21" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
-      <line x1="19" y1="24" x2="29" y2="24" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
-      <line x1="31" y1="15" x2="41" y2="15" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
-      <line x1="31" y1="18" x2="41" y2="18" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
-      <line x1="31" y1="21" x2="41" y2="21" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
-      <line x1="31" y1="24" x2="41" y2="24" stroke="#1a3a6e" stroke-width="0.8" opacity="0.5"/>
-    </svg>
+    <img src="assets/globe-icon.png" alt="Iglesia de Dios" style="width:100%;height:100%;object-fit:contain;">
   </div>
   <div class="header-text">
     <h1>Himnario</h1>
