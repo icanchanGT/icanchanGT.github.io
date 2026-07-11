@@ -1,4 +1,4 @@
-const CACHE = 'himnario-v1';
+const CACHE = 'himnario-v2';
 const ASSETS = ['./index.html', './manifest.json'];
 
 self.addEventListener('install', e => {
